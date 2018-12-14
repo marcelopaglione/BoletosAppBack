@@ -13,6 +13,7 @@ RECIBO_HEIGHT,
 RECIBO_PADDING,
 RECIBO_WIDTH,
 SHOW_FORM_DEBUG,
-VER_BOLETO_AUTOMATICAMENTE
+VER_BOLETO_AUTOMATICAMENTE,
+HIDE_COMPLETED_BOLETOS
 )
-VALUES('1','130','81','22','10','true','true','12','1','113','81','22','125','true','true');
+VALUES('1','130','81','22','10','true','true','12','1','113','81','22','125','true','true','true');

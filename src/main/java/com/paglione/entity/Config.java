@@ -12,6 +12,7 @@ public class Config {
     private String currentdate;
     private boolean logMessages;
     private boolean showFormDebug;
+    private boolean hideCompletedBoletos;
     private boolean verBoletoAutomaticamente;
 
     private String canhotoWidth;
@@ -26,37 +27,16 @@ public class Config {
     private String reciboPadding;
     private String reciboFont;
 
-    public Config() {
-    }
-
-    public Config(Long id, String parcelas, String currentdate, boolean logMessages, boolean showFormDebug, boolean verBoletoAutomaticamente, String canhotoWidth, String canhotoHeight, String canhotoBorder, String canhotoPadding, String canhotoFont, String reciboWidth, String reciboHeight, String reciboBorder, String reciboPadding, String reciboFont) {
-        this.id = id;
-        this.parcelas = parcelas;
-        this.currentdate = currentdate;
-        this.logMessages = logMessages;
-        this.showFormDebug = showFormDebug;
-        this.verBoletoAutomaticamente = verBoletoAutomaticamente;
-        this.canhotoWidth = canhotoWidth;
-        this.canhotoHeight = canhotoHeight;
-        this.canhotoBorder = canhotoBorder;
-        this.canhotoPadding = canhotoPadding;
-        this.canhotoFont = canhotoFont;
-        this.reciboWidth = reciboWidth;
-        this.reciboHeight = reciboHeight;
-        this.reciboBorder = reciboBorder;
-        this.reciboPadding = reciboPadding;
-        this.reciboFont = reciboFont;
-    }
-
     @Override
     public String toString() {
         return "Config{" +
                 "id=" + id +
                 ", parcelas='" + parcelas + '\'' +
                 ", currentdate='" + currentdate + '\'' +
-                ", logMessages='" + logMessages + '\'' +
-                ", showFormDebug='" + showFormDebug + '\'' +
-                ", verBoletoAutomaticamente='" + verBoletoAutomaticamente + '\'' +
+                ", logMessages=" + logMessages +
+                ", showFormDebug=" + showFormDebug +
+                ", hideCompletedBoletos=" + hideCompletedBoletos +
+                ", verBoletoAutomaticamente=" + verBoletoAutomaticamente +
                 ", canhotoWidth='" + canhotoWidth + '\'' +
                 ", canhotoHeight='" + canhotoHeight + '\'' +
                 ", canhotoBorder='" + canhotoBorder + '\'' +
@@ -68,6 +48,29 @@ public class Config {
                 ", reciboPadding='" + reciboPadding + '\'' +
                 ", reciboFont='" + reciboFont + '\'' +
                 '}';
+    }
+
+    public Config() {
+    }
+
+    public Config(Long id, String parcelas, String currentdate, boolean logMessages, boolean showFormDebug, boolean hideCompletedBoletos, boolean verBoletoAutomaticamente, String canhotoWidth, String canhotoHeight, String canhotoBorder, String canhotoPadding, String canhotoFont, String reciboWidth, String reciboHeight, String reciboBorder, String reciboPadding, String reciboFont) {
+        this.id = id;
+        this.parcelas = parcelas;
+        this.currentdate = currentdate;
+        this.logMessages = logMessages;
+        this.showFormDebug = showFormDebug;
+        this.hideCompletedBoletos = hideCompletedBoletos;
+        this.verBoletoAutomaticamente = verBoletoAutomaticamente;
+        this.canhotoWidth = canhotoWidth;
+        this.canhotoHeight = canhotoHeight;
+        this.canhotoBorder = canhotoBorder;
+        this.canhotoPadding = canhotoPadding;
+        this.canhotoFont = canhotoFont;
+        this.reciboWidth = reciboWidth;
+        this.reciboHeight = reciboHeight;
+        this.reciboBorder = reciboBorder;
+        this.reciboPadding = reciboPadding;
+        this.reciboFont = reciboFont;
     }
 
     public Long getId() {
@@ -94,7 +97,7 @@ public class Config {
         this.currentdate = currentdate;
     }
 
-    public boolean getLogMessages() {
+    public boolean isLogMessages() {
         return logMessages;
     }
 
@@ -102,7 +105,7 @@ public class Config {
         this.logMessages = logMessages;
     }
 
-    public boolean getShowFormDebug() {
+    public boolean isShowFormDebug() {
         return showFormDebug;
     }
 
@@ -110,7 +113,15 @@ public class Config {
         this.showFormDebug = showFormDebug;
     }
 
-    public boolean getVerBoletoAutomaticamente() {
+    public boolean isHideCompletedBoletos() {
+        return hideCompletedBoletos;
+    }
+
+    public void setHideCompletedBoletos(boolean hideCompletedBoletos) {
+        this.hideCompletedBoletos = hideCompletedBoletos;
+    }
+
+    public boolean isVerBoletoAutomaticamente() {
         return verBoletoAutomaticamente;
     }
 
