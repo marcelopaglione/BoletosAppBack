@@ -7,7 +7,9 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @org.springframework.web.bind.annotation.RestController
 @CrossOrigin(origins = "http://localhost:4200")
@@ -25,7 +27,9 @@ public class ClienteRestController {
     public List<Cliente> getClientes() {
         logger.info("[START] " + Thread.currentThread().getStackTrace()[1].getMethodName());
 
-        List<Cliente> clientes = clienteService.retrieveClientes();
+        List<Cliente> clientes = clienteService.retrieveClientes().stream()
+                .sorted(Comparator.comparing(item -> item.getNome()))
+                .collect(Collectors.toList());;
         logger.info("[END  ]" + Thread.currentThread().getStackTrace()[1].getMethodName());
         return clientes;
     }

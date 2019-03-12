@@ -5,7 +5,10 @@ import com.paglione.service.BoletoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
+
 import org.apache.log4j.Logger;
 
 @org.springframework.web.bind.annotation.RestController
@@ -22,7 +25,9 @@ public class BoletoRestController {
     @GetMapping("/api/boletos")
     public List<Boleto> getBoletos() {
         logger.info("[START] " + Thread.currentThread().getStackTrace()[1].getMethodName());
-        List<Boleto> boletos = boletoService.retrieveBoletos();
+        List<Boleto> boletos = boletoService.retrieveBoletos().stream()
+                .sorted(Comparator.comparing(item -> item.getCliente().getNome()))
+                .collect(Collectors.toList());;
         logger.info("[END  ]" + Thread.currentThread().getStackTrace()[1].getMethodName());
         return boletos;
     }
